@@ -1,0 +1,28 @@
+const mongoose = require("mongoose");
+const uri = "localhost address"; //"mongodb://127.0.0.1/dbname"
+mongoose.connect(uri);
+
+// Define the schema
+const productSchema = new mongoose.Schema({
+   feild0: String,
+  feild1: Number,
+  feild2: [String],
+   // Make sure it matches your schema
+  feild3: Boolean,
+});
+
+// Create the model
+const Product = mongoose.model('Product', productSchema);
+
+const main = async () => {
+  try {
+    const data = await Product.find(commands);
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+main();
